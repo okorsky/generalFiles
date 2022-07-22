@@ -1,1 +1,0 @@
-./venafi-agent-21.4.0-linux-x64.bundle  --install server_url=https://tpp01/vedclient registration_password=pass server_thumbprint=a19xxxx crl_checking=disabled --silent --start
