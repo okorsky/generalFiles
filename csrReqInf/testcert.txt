@@ -1,0 +1,6 @@
+$uri="https://"
+$req = [System.Net.HttpWebRequest][System.Net.WebRequest]::Create($uri);
+$res = [System.Net.HttpWebResponse]$req.GetResponse()
+$res.Close()
+$cert = [System.Security.Cryptography.X509Certificates.X509Certificate2]($req.ServicePoint.Certificate)
+write-output $cert.Thumbprint
