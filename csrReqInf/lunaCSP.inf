@@ -1,0 +1,11 @@
+[NewRequest]
+KeyUsageProperty = "NCRYPT_ALLOW_ALL_USAGES"
+RequestType = PKCS10
+ProviderName = "Luna Cryptographic Services for Microsoft Windows"
+ProviderType = 1
+Subject = "CN=Registration Authority"
+KeyContainer = "CSPRA20190418"
+MachineKeySet = TRUE
+HashAlgorithm = SHA256
+KeyAlgorithm = RSA
+KeyLength = 2048

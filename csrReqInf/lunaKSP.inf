@@ -1,0 +1,12 @@
+[NewRequest]
+KeyUsageProperty = "NCRYPT_ALLOW_ALL_USAGES"
+RequestType = PKCS10
+ProviderName = "SafeNet Key Storage Provider"
+ProviderType = 0
+Subject = "CN=Registration Authority"
+KeyContainer = KSPRAID20190418
+MachineKeySet = TRUE
+HashAlgorithm = SHA256
+KeyAlgorithm = RSA
+KeyLength = 2048
+KeyUsage = 0xf0

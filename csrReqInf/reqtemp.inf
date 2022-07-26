@@ -1,0 +1,13 @@
+[Version]
+Signature="$Windows NT$"
+
+[NewRequest]
+Subject="CN=vuser, CN=Users, DC=lab2016, DC=pki"
+Exportable=TRUE
+EncryptionAlgorithm=AES
+EncryptionLength=256
+HashAlgorithm=SHA256
+KeyAlgorithm=RSA
+KeyLength=2048
+MachineKeySet=FALSE
+ProviderName="Microsoft RSA SChannel Cryptographic Provider"
