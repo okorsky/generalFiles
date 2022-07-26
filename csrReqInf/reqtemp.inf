@@ -11,3 +11,6 @@ KeyAlgorithm=RSA
 KeyLength=2048
 MachineKeySet=FALSE
 ProviderName="Microsoft RSA SChannel Cryptographic Provider"
+
+[Extensions]
+2.5.29.17="{text}dns=fqdn.com"
