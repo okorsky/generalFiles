@@ -1,0 +1,7 @@
+dir Cert:\LocalMachine\My | ForEach-Object {
+    if (($_.Extensions | Where-Object {$_.Oid.FriendlyName -match "Certificate Template Information"}).Format(0).Contains("Lab")){$serial = $_.SerialNumber}
+}
+
+if (-not [String]::IsNullOrEmpty($serial)){
+    certreq -enroll -machine -q -PolicyServer * -cert $serial renew
+}
