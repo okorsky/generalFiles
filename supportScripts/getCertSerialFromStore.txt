@@ -1,0 +1,13 @@
+$hostname = [System.Net.DNS]::GetHostName()
+dir Cert:\LocalMachine\My | ForEach-Object {
+    $sans = $_.Extensions | Where-Object {
+        $_.Oid.FriendlyName -match "subject alternative name"
+    }
+    if (($_.Issuer.Contains("PKI-Lab CA")) -and ($_.Subject.Contains($hostname) -or ($sans.Format(0).Contains($hostname)))){
+        $serial = $_.SerialNumber
+    }
+}
+
+if (-not [String]::IsNullOrEmpty($serial)){
+    certreq -enroll -machine -q -PolicyServer * -cert $serial renew
+}
