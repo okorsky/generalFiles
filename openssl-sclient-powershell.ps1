@@ -1,14 +1,17 @@
-# Define the host and port
-$Host = "your_host"
+# Force PowerShell to use TLS 1.2 or TLS 1.3 (if supported by your .NET version)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+
+# Define the server and port
+$Server = "your_server"
 $Port = 443
 
 # Create a TCP connection to the server
-$tcpClient = New-Object System.Net.Sockets.TcpClient($Host, $Port)
+$tcpClient = New-Object System.Net.Sockets.TcpClient($Server, $Port)
 $stream = $tcpClient.GetStream()
 
 # Create an SSL stream and authenticate the server
 $sslStream = New-Object System.Net.Security.SslStream($stream, $false, ({$true}))
-$sslStream.AuthenticateAsClient($Host)
+$sslStream.AuthenticateAsClient($Server)
 
 # Get the server certificate
 $cert = $sslStream.RemoteCertificate
